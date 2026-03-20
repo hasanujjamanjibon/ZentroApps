@@ -12,17 +12,19 @@ const ContextProvider = ({ children }) => {
     loading,
   };
   useEffect(() => {
-    const fetchApps = async () => {
-      try {
-        const response = await axios.get('/app-data.json');
-        setApps(response?.data);
-        setLoading(false);
-      } catch (error) {
-        console.error('Error fetching app data:', error);
-        setLoading(false);
-      }
-    };
-    fetchApps();
+    setTimeout(() => {
+      const fetchApps = async () => {
+        try {
+          const response = await axios.get('/app-data.json');
+          setApps(response?.data);
+          setLoading(false);
+        } catch (error) {
+          console.error('Error fetching app data:', error);
+          setLoading(false);
+        }
+      };
+      fetchApps();
+    }, 1500);
   }, []);
 
   return <StateContext.Provider value={data}>{children}</StateContext.Provider>;

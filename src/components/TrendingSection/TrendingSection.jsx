@@ -2,11 +2,13 @@ import { Link } from 'react-router';
 import ContextWrapper from '../../provider/ContextWrapper';
 import AppCard from '../AppCard';
 import BtnShowAll from '../BtnShowAll';
+import SkeletonCard from '../SkeletonCard';
+import { useState } from 'react';
 
 const TrendingSection = () => {
   const { apps, loading } = ContextWrapper();
+  const [hoveredId, setHoveredId] = useState(null);
 
-  console.log(apps);
 
   return (
     <>
@@ -22,11 +24,20 @@ const TrendingSection = () => {
         </p>
       </div>
       <div className='max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6'>
-        {loading ? (
-          <div className='col-span-full text-center'>Loading...</div>
-        ) : (
-          apps?.slice(0, 8)?.map((app) => <AppCard key={app.id} app={app} />)
-        )}
+        {loading
+          ? Array(8)
+              .fill(0)
+              .map((_, i) => <SkeletonCard key={i} />)
+          : apps
+              ?.slice(0, 8)
+              ?.map((app) => (
+                <AppCard
+                  key={app.id}
+                  app={app}
+                  hoveredId={hoveredId}
+                  setHoveredId={setHoveredId}
+                />
+              ))}
       </div>
       <div className='text-center  flex justify-center'>
         <Link to={'/apps'}>
