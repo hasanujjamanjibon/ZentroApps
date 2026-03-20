@@ -24,7 +24,7 @@ const ContextProvider = ({ children }) => {
         }
       };
       fetchApps();
-    }, 1500);
+    }, 800);
   }, []);
 
   return <StateContext.Provider value={data}>{children}</StateContext.Provider>;
