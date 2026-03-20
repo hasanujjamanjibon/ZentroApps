@@ -3,7 +3,7 @@ import { RiStarFill, RiDownload2Fill } from '@remixicon/react';
 const AppCard = ({ app, hoveredId, setHoveredId }) => {
   return (
     <div
-      className={`bg-white rounded-2xl shadow-sm p-4 w-full max-w-xs hover:shadow-md transition cursor-pointer ${
+      className={`bg-white rounded-2xl shadow-sm p-4 w-full max-w-sm hover:shadow-md transition cursor-pointer ${
         hoveredId === null
           ? 'opacity-100'
           : hoveredId === app.id
@@ -14,11 +14,11 @@ const AppCard = ({ app, hoveredId, setHoveredId }) => {
       onMouseLeave={() => setHoveredId(null)}
     >
       {/* Image */}
-      <div className='w-full h-48 bg-gray-100 rounded-xl overflow-hidden'>
+      <div className='w-full  h-46   rounded-xl overflow-hidden mx-auto  '>
         <img
           src={app.image}
           alt={app.title}
-          className='w-full h-full object-cover'
+          className='w-auto h-full object-cover  mx-auto rounded-2xl'
         />
       </div>
 

@@ -8,6 +8,7 @@ const AllApps = () => {
   const [filteredApps, setFilteredApps] = useState([]); // Search result ekhane thakbe
   const [searchTerm, setSearchTerm] = useState('');
   const [hoveredId, setHoveredId] = useState(null);
+
   useEffect(() => {
     if (searchTerm === '') {
       setFilteredApps(apps); // Faka thakle sob dekhabe
@@ -19,8 +20,8 @@ const AllApps = () => {
     }
   }, [searchTerm, apps]);
   return (
-    <>
-      <div className='text-center my-12 px-4  md:px-8 lg:px-16 space-y-4'>
+    <div className='my-12'>
+      <div className='text-center mb-12 px-4  md:px-8 lg:px-16 space-y-4'>
         {/* Title */}
         <h2 className='text-4xl md:text-5xl font-bold text-[#001d3d] '>
           Our All Applications
@@ -62,7 +63,7 @@ const AllApps = () => {
           />
         </label>
       </div>
-      <div className='max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6'>
+      <div className='max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6 place-items-center'>
         {loading
           ? Array(8)
               .fill(0)
@@ -76,7 +77,7 @@ const AllApps = () => {
               />
             ))}
       </div>
-    </>
+    </div>
   );
 };
 
