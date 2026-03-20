@@ -2,6 +2,7 @@ import { useState } from 'react';
 import NavList from '../../components/NavList';
 import { RiCloseLine, RiMenuLine } from '@remixicon/react';
 import BtnContribute from '../../components/BtnContribute';
+import { Link } from 'react-router';
 
 const Header = () => {
   const [open, setOpen] = useState(false);
@@ -11,10 +12,10 @@ const Header = () => {
       <nav className='max-w-6xl mx-auto w-full  px-4 md:px-8 py-3 '>
         <div className='flex items-center justify-between'>
           {/* Logo */}
-          <div className='flex items-center gap-2'>
+          <Link to={'/'} className='flex items-center gap-2'>
             <img src='/assets/logo.png' alt='logo' className='w-8 h-8' />
             <h1 className='font-bold text-lg text-purple-700'>HERO.IO</h1>
-          </div>
+          </Link>
 
           {/* Navlist Items */}
           <ul className='hidden md:flex items-center gap-6 text-sm text-black'>
