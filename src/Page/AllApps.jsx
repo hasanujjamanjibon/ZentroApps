@@ -12,7 +12,6 @@ const AllApps = () => {
   const [searchLoading, setSearchLoading] = useState(false);
   useEffect(() => {
     setSearchLoading(true);
-
     const timer = setTimeout(() => {
       if (searchTerm === '') {
         setFilteredApps(apps);
@@ -76,7 +75,7 @@ const AllApps = () => {
           />
         </label>
       </div>
-      <div className='max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6 place-items-center'>
+      <div className='container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6 place-items-center'>
         {loading || searchLoading
           ? Array(8)
               .fill(0)

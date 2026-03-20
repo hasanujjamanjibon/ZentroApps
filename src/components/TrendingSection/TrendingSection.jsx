@@ -23,7 +23,7 @@ const TrendingSection = () => {
           Explore All Trending Apps on the Market developed by us
         </p>
       </div>
-      <div className='max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6 place-items-center'>
+      <div className='container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6 place-items-center'>
         {loading
           ? Array(8)
               .fill(0)

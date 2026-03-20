@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <Header />
-      <div className='min-h-[calc(100vh-85px)]  '>
+      <div className='min-h-[calc(100vh-52px)]  '>
         <ScrollToTop />
         <NavigationLoader />
         <Outlet />

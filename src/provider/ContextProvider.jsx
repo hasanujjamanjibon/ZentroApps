@@ -5,11 +5,15 @@ const StateContext = createContext(null);
 const ContextProvider = ({ children }) => {
   const [apps, setApps] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  // handleAddData
+  const handleAddData = (appId) => {
+    console.log(appId);
+  };
   // all context data will be here
   const data = {
     apps,
     loading,
+    handleAddData,
   };
   useEffect(() => {
     setTimeout(() => {

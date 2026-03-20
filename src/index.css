@@ -12,3 +12,6 @@ body {
 button {
   @apply cursor-pointer;
 }
+.container {
+  @apply max-w-6xl mx-auto w-full  px-4 md:px-8 py-3;
+}

@@ -1,8 +1,10 @@
 import { RiStarFill, RiDownload2Fill } from '@remixicon/react';
+import { Link } from 'react-router';
 
 const AppCard = ({ app, hoveredId, setHoveredId }) => {
   return (
-    <div
+    <Link
+      to={`/details/${app.id}`}
       className={`bg-white rounded-2xl shadow-sm p-4 w-full max-w-sm hover:shadow-md transition cursor-pointer ${
         hoveredId === null
           ? 'opacity-100'
@@ -14,11 +16,11 @@ const AppCard = ({ app, hoveredId, setHoveredId }) => {
       onMouseLeave={() => setHoveredId(null)}
     >
       {/* Image */}
-      <div className='w-full  h-46   rounded-xl overflow-hidden mx-auto  '>
+      <div className='w-46  h-40   rounded-xl overflow-hidden mx-auto  '>
         <img
           src={app.image}
           alt={app.title}
-          className='w-auto h-full object-cover  mx-auto rounded-2xl'
+          className='w-fit h-full object-cover  mx-auto rounded-2xl'
         />
       </div>
 
@@ -41,7 +43,7 @@ const AppCard = ({ app, hoveredId, setHoveredId }) => {
           {Math.round(app.ratingAvg)}
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

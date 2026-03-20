@@ -1,36 +1,13 @@
 
 
-# 🐣 Basic Requirements
-
-- Make the Application Responsive for All the Devices
-
-- Give a meaning full name to your application
-- Make Sure on Production Application is error Free
-- Add a Readme.md with App Name , Description & Technologies
 
 
 #### Top Apps Section
 
 - Clicking on a card should navigate the user to the App Details page.
 
-
-## 3.📱 All Apps Page
-
-
-
-
-  - filters apps by title as the user types.
-  - Search will be case-insensitive
-  - If no app matches, display a “No App Found” message.
-
 #### App Section
 
-
-- Each app card should include:
-  - App title
-  - Image
-  - Download count
-  - Average rating
 - Clicking on an app card should navigate to the App Details page.
 
 ---
@@ -56,14 +33,7 @@
 
 ---
 
-## 5. Error Page & Others
 
-
-
-- Show a loading animation during: `Challenge Part`  
-
-  - Page navigation. 
-  - Search operation.
 
 ---
 
@@ -97,31 +67,12 @@
 
 ---
 
-### Loading Animation
-
-- Show a loading animation during: 
-  - Page navigation. 
-  - Search operation
-
----
 
 ## 🚀 Deployment
 
 - Deploy the project to Cloudflare / Netlify / Vercel.
 - Reloading from any route must work correctly without showing a 404 error.
 
----
 
-## 🔗 Submission Guideline
-
-- **Live Link :** YOUR_DEPLOYED_URL_HERE
-- **GitHub Repository:** YOUR_REPO_URL_HERE
-
-
-### 📅 Deadline For 60 marks: 26 March , 2026 (11:59 pm ⏱️)
-
-### 📅 Deadline For 50 marks : 27 March , 2026 (11:59 pm⏱️)
-
-### 📅 Deadline For 30 marks: Since this is the final assignment, there will be no 30-mark deadline. You must submit it within the 50-mark deadline to qualify for the reward.
 
 
