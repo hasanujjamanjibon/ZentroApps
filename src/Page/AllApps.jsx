@@ -9,16 +9,24 @@ const AllApps = () => {
   const [filteredApps, setFilteredApps] = useState([]); // Search result ekhane thakbe
   const [searchTerm, setSearchTerm] = useState('');
   const [hoveredId, setHoveredId] = useState(null);
-
+  const [searchLoading, setSearchLoading] = useState(false);
   useEffect(() => {
-    if (searchTerm === '') {
-      setFilteredApps(apps); // Faka thakle sob dekhabe
-    } else {
-      const results = apps.filter((app) =>
-        app.title.toLowerCase().includes(searchTerm.toLowerCase()),
-      );
-      setFilteredApps(results); // Mil thakle sudhu segulo dekhabe
-    }
+    setSearchLoading(true);
+
+    const timer = setTimeout(() => {
+      if (searchTerm === '') {
+        setFilteredApps(apps);
+      } else {
+        const results = apps.filter((app) =>
+          app.title.toLowerCase().includes(searchTerm.toLowerCase()),
+        );
+        setFilteredApps(results);
+      }
+
+      setSearchLoading(false);
+    }, 500); // delay
+
+    return () => clearTimeout(timer);
   }, [searchTerm, apps]);
   return (
     <div className='my-12 '>
@@ -69,7 +77,7 @@ const AllApps = () => {
         </label>
       </div>
       <div className='max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6 place-items-center'>
-        {loading
+        {loading || searchLoading
           ? Array(8)
               .fill(0)
               .map((_, i) => <SkeletonCard key={i} />)

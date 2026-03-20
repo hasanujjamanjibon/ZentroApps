@@ -22,7 +22,7 @@ const NavList = () => {
         <ActiveRoutes
           key={item?.path}
           to={item?.path}
-          className='font-medium text-lg'
+          className='font-medium text-lg '
         >
           {item?.label}
         </ActiveRoutes>
