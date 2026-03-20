@@ -9,6 +9,6 @@
 body {
   font-family: 'Inter', sans-serif;
 }
-/* button {
-  @apply cursor-pointer;
-} */
+button {
+  @apply cursor-pointer transition-colors duration-300;
+}

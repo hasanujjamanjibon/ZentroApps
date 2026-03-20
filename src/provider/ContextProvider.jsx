@@ -1,18 +1,29 @@
-import { createContext, useState } from 'react';
+import axios from 'axios';
+import { createContext, useEffect, useState } from 'react';
 const StateContext = createContext(null);
 
 const ContextProvider = ({ children }) => {
   const [apps, setApps] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  console.log(apps);
-
-  const handleName = () => {
-    console.log('name is being called');
-  };
   // all context data will be here
   const data = {
-    handleName,
+    apps,
+    loading,
   };
+  useEffect(() => {
+    const fetchApps = async () => {
+      try {
+        const response = await axios.get('/app-data.json');
+        setApps(response?.data);
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching app data:', error);
+        setLoading(false);
+      }
+    };
+    fetchApps();
+  }, []);
 
   return <StateContext.Provider value={data}>{children}</StateContext.Provider>;
 };

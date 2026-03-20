@@ -19,7 +19,11 @@ const NavList = () => {
   return (
     <>
       {ListItem.map((item) => (
-        <ActiveRoutes key={item?.path} to={item?.path} className='font-medium'>
+        <ActiveRoutes
+          key={item?.path}
+          to={item?.path}
+          className='font-medium text-lg'
+        >
           {item?.label}
         </ActiveRoutes>
       ))}
