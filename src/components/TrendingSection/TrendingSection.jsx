@@ -2,13 +2,12 @@ import { Link } from 'react-router';
 import ContextWrapper from '../../provider/ContextWrapper';
 import AppCard from '../AppCard';
 import BtnShowAll from '../BtnShowAll';
-import SkeletonCard from '../SkeletonCard';
 import { useState } from 'react';
+import SkeletonCard from '../SkeltonComponents/SkeletonCard';
 
 const TrendingSection = () => {
   const { apps, loading } = ContextWrapper();
   const [hoveredId, setHoveredId] = useState(null);
-
 
   return (
     <>
@@ -39,7 +38,7 @@ const TrendingSection = () => {
                 />
               ))}
       </div>
-      <div className='text-center  flex justify-center'>
+      <div className='text-center my-8 flex justify-center'>
         <Link to={'/apps'}>
           <BtnShowAll />
         </Link>

@@ -1,10 +1,14 @@
 import { useParams } from 'react-router';
 import ContextWrapper from '../provider/ContextWrapper';
 import BarCharts from '../components/BarCharts';
+import { useEffect, useState } from 'react';
+import DetailsSkeltonLoader from '../components/SkeltonComponents/DetailsSkeltonLoader';
 
 const Details = () => {
-  const { apps,handleAddData } = ContextWrapper();
+  const { apps, handleAddData, installed, setInstalled, storedData } =
+    ContextWrapper();
   const { id } = useParams();
+  const [isLoading, setIsLoading] = useState(true);
 
   const {
     image,
@@ -19,11 +23,26 @@ const Details = () => {
     ratings,
   } = apps?.find((app) => app.id == id) || {};
 
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+      const match = storedData.includes(Number(id));
+      if (match) {
+        setInstalled(true);
+      } else {
+        setInstalled(false);
+      }
+    }, 1000);
+  }, [id, setInstalled]);
+
+  if (isLoading) {
+    return <DetailsSkeltonLoader />;
+  }
   return (
-    <div className='min-h-screen '>
+    <div className='min-h-screen py-10'>
       <div className='container'>
         {/* Header */}
-        <div className='flex flex-col md:flex-row items-center md:items-start gap-4'>
+        <div className='flex flex-col md:flex-row items-center md:items-start gap-6'>
           {/* Icon */}
           <div className='w-40 h-40 md:w-56 md:h-56 bg-white p-4 flex items-center justify-center'>
             <span className='text-3xl'>
@@ -82,9 +101,10 @@ const Details = () => {
             {/* Button */}
             <button
               onClick={() => handleAddData(appId)}
-              className='mt-4 bg-green-400 hover:bg-green-500 text-white px-4 py-2 rounded-lg transition-all duration-300 hover:scale-90'
+              disabled={installed}
+              className={`mt-4 text-white px-4 py-2 rounded-lg ${installed ? 'bg-gray-400 !cursor-not-allowed' : 'bg-green-400 hover:bg-green-500 transition-all duration-300 hover:scale-90 '}`}
             >
-              Install Now ({size} MB)
+              {installed ? 'Installed' : `Install Now (${size || 0} MB)`}
             </button>
           </div>
         </div>
@@ -96,7 +116,7 @@ const Details = () => {
 
         {/* Description */}
         <div className='mt-8'>
-          <h2 className='font-semibold mb-2'>Description</h2>
+          <h2 className='font-semibold text-2xl mb-2'>Description</h2>
           <p className='text-base text-gray-600 '>
             {description?.map((text, index) => (
               <span key={index}>

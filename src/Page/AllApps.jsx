@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import AppCard from '../components/AppCard';
-import SkeletonCard from '../components/SkeletonCard';
 import ContextWrapper from '../provider/ContextWrapper';
 import AppNotFoundPage from './AppNotFoundPage';
+import SkeletonCard from '../components/SkeltonComponents/SkeletonCard';
 
 const AllApps = () => {
   const { apps, loading } = ContextWrapper();
@@ -69,7 +69,7 @@ const AllApps = () => {
             type='search'
             className='ml-2  rounded-lg px-4 py-2 focus:outline-none '
             required
-            placeholder='Search'
+            placeholder='Search apps...'
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />

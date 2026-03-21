@@ -1,44 +1,5 @@
 
 
-
-
-#### Top Apps Section
-
-- Clicking on a card should navigate the user to the App Details page.
-
-#### App Section
-
-- Clicking on an app card should navigate to the App Details page.
-
----
-
-## 4.📊 App Details Page
-
-#### App Information
-
-- Show app image on the left.
-- Display app details such as title, rating, downloads, reviews.
-- Include an `Install button`:
-  - When clicked, it becomes disabled and the text changes to `Installed`.
-  - Show a Success Toast after App installed
-
-#### App Review Chart
-
-- Implement a responsive chart using the **Recharts** library.
-- Visualize the app’s review data as shown in the Figma design.
-
-#### App Description
-
-- Show the app details in description section as per Figma layout.
-
----
-
-
-
----
-
-# Challenge Requirement
-
 ### LocalStorage Features
 
 #### App Installation

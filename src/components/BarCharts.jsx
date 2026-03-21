@@ -9,17 +9,9 @@ import {
 } from 'recharts';
 
 const BarCharts = ({ ratings = [] }) => {
-  //   const ratings = [
-  //     { name: '1 star', count: 400 },
-  //     { name: '2 star', count: 700 },
-  //     { name: '3 star', count: 1400 },
-  //     { name: '4 star', count: 4800 },
-  //     { name: '5 star', count: 4700 },
-  //   ];
-
   return (
     <div className='mt-8'>
-      <h2 className='font-semibold mb-4'>Ratings</h2>
+      <h2 className='font-semibold text-2xl mb-4'>Ratings</h2>
 
       <div className='w-full h-64'>
         <div className='w-full h-64'>

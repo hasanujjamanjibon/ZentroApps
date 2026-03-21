@@ -3,8 +3,6 @@ import StatisticsSection from '../components/StatisticsSection/StatisticsSection
 import TrendingSection from '../components/TrendingSection/TrendingSection';
 
 const Home = () => {
-
-
   return (
     <>
       <HeroSection />
