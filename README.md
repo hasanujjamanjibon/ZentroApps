@@ -9,8 +9,8 @@
 
 ## 🌐 Live Links
 
-🔗 **Live Site:** https://heroui24.netlify.app/ 
-💻 **GitHub Repository:** https://github.com/hasanujjamanjibon/hero-io.git
+🔗 **Live Site:** https://heroui24.netlify.app/  
+💻 **GitHub Repository:** https://github.com/hasanujjamanjibon/hero-io.git  
 👤 **GitHub Profile:** https://github.com/hasanujjamanjibon/
 
 ---
