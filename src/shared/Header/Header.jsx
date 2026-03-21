@@ -14,7 +14,7 @@ const Header = () => {
           {/* Logo */}
           <Link to={'/'} className='flex items-center gap-2'>
             <img src='/assets/logo.png' alt='logo' className='w-8 h-8' />
-            <h1 className='font-bold text-lg text-purple-700'>HERO.IO</h1>
+            <h1 className='font-bold text-lg text-purple-700'>ZentroApps</h1>
           </Link>
 
           {/* Navlist Items */}

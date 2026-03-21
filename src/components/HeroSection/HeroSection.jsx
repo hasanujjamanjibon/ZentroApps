@@ -10,7 +10,7 @@ const HeroSection = () => {
       </h1>
       {/* Description Text */}
       <p className='mt-4 max-w-4xl text-slate-500 text-sm md:text-base lg:text-lg leading-relaxed'>
-        At HERO.IO , we craft innovative apps designed to make everyday life
+        At ZentroApps , we craft innovative apps designed to make everyday life
         simpler, smarter, and more exciting. Our goal is to turn your ideas into
         digital experiences that truly make an impact.
       </p>

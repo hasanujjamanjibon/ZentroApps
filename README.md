@@ -1,4 +1,4 @@
-# 📱 HeroIO – Modern App Store Web App
+# 📱 ZentroApps – Modern App Store Web App
 
 ![React](https://img.shields.io/badge/React-18-blue)
 ![Tailwind](https://img.shields.io/badge/TailwindCSS-3-38B2AC)
@@ -9,8 +9,8 @@
 
 ## 🌐 Live Links
 
-🔗 **Live Site:** https://heroui24.netlify.app/  
-💻 **GitHub Repository:** https://github.com/hasanujjamanjibon/hero-io.git  
+🔗 **Live Site:** https://zentroapps.netlify.app/  
+💻 **GitHub Repository:** https://github.com/hasanujjamanjibon/ZentroApps.git  
 👤 **GitHub Profile:** https://github.com/hasanujjamanjibon/
 
 ---
@@ -37,7 +37,7 @@
 
 ## 📖 Description
 
-HeroIO is a modern and responsive App Store web application where users can explore apps, search in real-time, view detailed analytics, and manage installed applications using localStorage.
+ZentroApps is a modern and responsive App Store web application where users can explore apps, search in real-time, view detailed analytics, and manage installed applications using localStorage.
 
 This project demonstrates real-world frontend development concepts including routing, dynamic UI rendering, state management, and data visualization.
 
@@ -119,10 +119,10 @@ src/
 
 ```bash
 # Clone the repository
-git clone https://github.com/hasanujjamanjibon/hero-io.git
+git clone https://github.com/hasanujjamanjibon/ZentroApps.git
 
 # Navigate to project folder
-cd hero-io
+cd ZentroApps
 
 # Install dependencies
 npm install

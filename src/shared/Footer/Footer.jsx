@@ -113,7 +113,7 @@ const FooterAppStore = () => {
 
         {/* Bottom */}
         <div className='flex flex-col md:flex-row justify-between items-center text-gray-500 text-sm border-t border-gray-200 pt-4'>
-          <p>&copy; 2026 Hero.io. All rights reserved.</p>
+          <p>&copy; 2026 ZentroApps. All rights reserved.</p>
           <div className='flex space-x-4 mt-2 md:mt-0'>
             <Link to='#' className='hover:text-gray-800 transition'>
               Terms & Conditions
