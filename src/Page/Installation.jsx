@@ -42,14 +42,14 @@ const Installation = () => {
           Explore All Trending Apps on the Market developed by us
         </p>
       </div>
-      <div className={`flex justify-between items-center container`}>
-        <h3 className='text-2xl font-semibold text-gray-800 mb-4 text-center'>
+      <div className='flex justify-between items-center container '>
+        <h3 className='text-lg sm:text-xl md:text-2xl font-semibold text-gray-800  text-center'>
           {filteredData?.length || 0} Apps Found
         </h3>
         <select
-          defaultValue='Sort By Size'
+          defaultValue='Sort By Download'
           onChange={(e) => handleSortByDownload(e.target.value)}
-          className='select appearance-none w-fit focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 rounded-md border border-gray-300  py-2 text-sm text-gray-700'
+          className='select select-sm sm:select-lg appearance-none w-fit focus:outline-none  focus:border-0 rounded-md border border-gray-300 text-sm text-gray-700 cursor-pointer '
         >
           <option disabled={true}>Sort By Download</option>
           <option value={'Low - high'}>Low - High</option>

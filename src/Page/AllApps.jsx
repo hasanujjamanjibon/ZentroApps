@@ -17,13 +17,13 @@ const AllApps = () => {
         setFilteredApps(apps);
       } else {
         const results = apps.filter((app) =>
-          app.title.toLowerCase().includes(searchTerm.toLowerCase()),
+          app?.title?.toLowerCase().includes(searchTerm.toLowerCase()),
         );
         setFilteredApps(results);
       }
 
       setSearchLoading(false);
-    }, 500); // delay
+    }, 1000); // delay
 
     return () => clearTimeout(timer);
   }, [searchTerm, apps]);
@@ -40,15 +40,16 @@ const AllApps = () => {
           Explore All Apps on the Market developed by us. We code for Millions
         </p>
       </div>
-      <div
-        className={`flex justify-between items-center max-w-6xl mx-auto px-4 md:px-8 mb-6 `}
-      >
-        <h3 className='text-2xl font-medium text-gray-800 mb-4 text-center'>
-          ({filteredApps?.length}) Apps Found
+      <div className='flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 max-w-6xl mx-auto px-4 py-3  md:px-8 mb-6'>
+        {/* Title */}
+        <h3 className='text-lg sm:text-xl md:text-2xl font-medium text-gray-800 text-center sm:text-left '>
+          ({filteredApps?.length || 0}) Apps Found
         </h3>
-        <label className='input'>
+
+        {/* Search */}
+        <label className='input input-bordered flex items-center gap-2 w-full sm:w-auto focus:outline-none focus:ring-0 '>
           <svg
-            className='h-[1em] opacity-50'
+            className='h-4 w-4 opacity-50'
             xmlns='http://www.w3.org/2000/svg'
             viewBox='0 0 24 24'
           >
@@ -63,10 +64,10 @@ const AllApps = () => {
               <path d='m21 21-4.3-4.3'></path>
             </g>
           </svg>
+
           <input
             type='search'
-            className='ml-2  rounded-lg px-4 py-2 focus:outline-none '
-            required
+            className='grow text-sm sm:text-base focus:outline-0 focus:ring-0 focus:border-0 focus:shadow-md transition duration-200 rounded-md'
             placeholder='Search apps...'
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}

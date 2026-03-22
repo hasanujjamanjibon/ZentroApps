@@ -4,11 +4,11 @@ const InstalledCard = ({ app }) => {
   const { image, title, id, size, ratingAvg, downloads } = app || {};
   const { handleRemoveData } = ContextWrapper();
   return (
-    <div className='flex items-center justify-between p-4 bg-white border border-gray-100 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 max-w-6xl mx-auto'>
-      {/* Left Side: Image and Details */}
-      <div className='flex items-center gap-4'>
-        {/* Placeholder for App Icon */}
-        <div className='w-20 h-20 bg-gray-100 rounded-sm shrink-0'>
+    <div className='flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 bg-white border border-gray-100 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 max-w-6xl mx-auto'>
+      {/* Left Side */}
+      <div className='flex items-start sm:items-center gap-3 sm:gap-4'>
+        {/* App Icon */}
+        <div className='w-16 h-16 sm:w-20 sm:h-20 bg-gray-100 rounded-md shrink-0'>
           <img
             src={image}
             alt={title}
@@ -16,45 +16,51 @@ const InstalledCard = ({ app }) => {
           />
         </div>
 
-        <div className='flex flex-col gap-1'>
+        {/* Details */}
+        <div className='flex flex-col justify-center gap-1 min-w-0'>
           {/* Title */}
-          <h3 className='text-lg font-semibold text-slate-800 leading-tight'>
+          <h3 className='text-sm sm:text-base md:text-lg lg:text-xl font-semibold text-slate-800 leading-snug line-clamp-2 wrap-break-words'>
             {title}
           </h3>
 
-          {/* Stats (Downloads, Rating, Size) */}
-          <div className='flex items-center gap-3 text-xs md:text-sm text-emerald-500 font-medium'>
-            <div className='flex items-center gap-1'>
+          {/* Stats */}
+          <div className='flex flex-wrap items-center gap-x-2 gap-y-1 sm:gap-x-3 text-[11px] sm:text-xs md:text-sm font-medium'>
+            {/* Downloads */}
+            <div className='flex items-center gap-1 text-emerald-500 whitespace-nowrap'>
               <img
-                className='h-3 w-3 mx-auto'
+                className='h-3 w-3 sm:h-3.5 sm:w-3.5'
                 src='/assets/icon-downloads.png'
                 alt='Downloads'
               />
               <span>
                 {downloads >= 1000000
-                  ? `${downloads / 1000000}M`
+                  ? `${(downloads / 1000000).toFixed(1)}M`
                   : `${Math.floor(downloads / 1000)}K`}
               </span>
             </div>
 
-            <div className='flex items-center gap-1'>
+            {/* Rating */}
+            <div className='flex items-center gap-1 text-gray-600 whitespace-nowrap'>
               <img
-                className='h-3 w-3 mx-auto'
+                className='h-3 w-3 sm:h-3.5 sm:w-3.5'
                 src='/assets/icon-ratings.png'
                 alt='Average Ratings'
               />
-              <span className='text-gray-600'>{ratingAvg}</span>
+              <span>{ratingAvg}</span>
             </div>
 
-            <div className='text-gray-500 font-normal'>{size} MB</div>
+            {/* Size */}
+            <div className='text-gray-500 font-normal whitespace-nowrap'>
+              {size} MB
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Action Button */}
+      {/* Button */}
       <button
         onClick={() => handleRemoveData(id)}
-        className='bg-[#00D084] hover:bg-[#00ba76] text-white px-6 py-2 rounded-md font-medium text-sm md:text-base transition-colors duration-200 shadow-sm'
+        className='w-full sm:w-auto bg-[#00D084] hover:bg-[#00ba76] text-white px-4 sm:px-6 py-2 sm:py-2.5 rounded-md font-medium text-sm sm:text-base transition-all duration-200 shadow-sm hover:shadow-md active:scale-95'
       >
         Uninstall
       </button>

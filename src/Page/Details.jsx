@@ -39,7 +39,7 @@ const Details = () => {
     return <DetailsSkeltonLoader />;
   }
   return (
-    <div className='min-h-screen py-10'>
+    <div className='min-h-screen py-5 sm:py-8 lg:py-12'>
       <div className='container'>
         {/* Header */}
         <div className='flex flex-col md:flex-row items-center md:items-start gap-6'>
@@ -58,42 +58,50 @@ const Details = () => {
             </p>
             <div className='h-0.5 bg-gray-200 my-6'></div>
             {/* Stats */}
-            <div className='flex flex-wrap justify-center md:justify-start gap-12 mt-4 text-center'>
-              <div className='space-y-1'>
+            <div className='flex flex-wrap justify-center md:justify-start gap-4 sm:gap-10 md:gap-12 mt-6 text-center md:text-left'>
+              {/* Item */}
+              <div className='flex flex-col items-center md:items-start space-y-1 w-28 sm:w-35'>
                 <img
-                  className='h-10 w-10 mx-auto'
+                  className='h-8 w-8 sm:h-10 sm:w-10'
                   src='/assets/icon-downloads.png'
                   alt='Downloads'
                 />
-                <p className='text-sm text-gray-500'>Downloads</p>
-                <p className='font-extrabold text-4xl'>
-                  {' '}
+                <p className='text-xs sm:text-sm text-gray-500'>Downloads</p>
+                <p className='font-extrabold text-xl sm:text-3xl md:text-4xl'>
                   {downloads >= 1000000
-                    ? `${downloads / 1000000}M`
+                    ? `${(downloads / 1000000).toFixed(1)}M`
                     : `${Math.floor(downloads / 1000)}K`}
                 </p>
               </div>
 
-              <div className='space-y-1'>
+              {/* Item */}
+              <div className='flex flex-col items-center md:items-start space-y-1 w-28 sm:w-35'>
                 <img
-                  className='h-10 w-10 mx-auto'
+                  className='h-8 w-8 sm:h-10 sm:w-10'
                   src='/assets/icon-ratings.png'
                   alt='Average Ratings'
                 />
-                <p className='text-sm text-gray-500'>Average Ratings</p>
-                <p className='font-extrabold text-4xl'>{ratingAvg}</p>
+                <p className='text-xs sm:text-sm text-gray-500'>
+                  Average Ratings
+                </p>
+                <p className='font-extrabold text-xl sm:text-3xl md:text-4xl'>
+                  {ratingAvg}
+                </p>
               </div>
 
-              <div className='space-y-1'>
+              {/* Item */}
+              <div className='flex flex-col items-center md:items-start space-y-1 w-fit sm:w-35 '>
                 <img
-                  className='h-10 w-10 mx-auto'
+                  className='h-8 w-8 sm:h-10 sm:w-10'
                   src='/assets/icon-review.png'
                   alt='Total Reviews'
                 />
-                <p className='text-sm text-gray-500'>Total Reviews</p>
-                <p className='font-extrabold text-4xl'>
+                <p className='text-xs sm:text-sm text-gray-500'>
+                  Total Reviews
+                </p>
+                <p className='font-extrabold text-xl sm:text-3xl md:text-4xl'>
                   {reviews >= 1000000
-                    ? `${reviews / 1000000}M`
+                    ? `${(reviews / 1000000).toFixed(1)}M`
                     : `${Math.floor(reviews / 1000)}K`}
                 </p>
               </div>
@@ -101,8 +109,12 @@ const Details = () => {
             {/* Button */}
             <button
               onClick={() => handleAddData(appId)}
-              disabled={installed == true}
-              className={`mt-4 text-white px-4 py-2 rounded-lg ${isLoading || installed ? 'bg-gray-400 !cursor-not-allowed' : 'bg-green-400 hover:bg-green-500 transition-all duration-300 hover:scale-90 '}`}
+              disabled={installed === true}
+              className={`mt-4 w-auto text-white px-4 sm:px-6 py-2 sm:py-2.5 md:py-3 text-sm sm:text-base md:text-lg rounded-lg font-semibold transition-all duration-300 ${
+                isLoading || installed
+                  ? 'bg-gray-400 cursor-not-allowed opacity-80'
+                  : 'bg-green-500 hover:bg-green-600 hover:scale-95 active:scale-90'
+              }`}
             >
               {isLoading || installed
                 ? 'Installed'

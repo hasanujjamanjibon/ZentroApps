@@ -14,9 +14,9 @@ const FooterAppStore = () => {
     <footer className='bg-white text-gray-800'>
       <div className='container'>
         {/* Newsletter */}
-        <div className='flex flex-col md:flex-row justify-between items-center mb-12 bg-gray-50 p-6 rounded-lg'>
+        <div className='flex flex-col md:flex-row justify-between items-start md:items-center mb-12 bg-gray-50 p-2 sm:p-4 md:p-6 rounded-lg'>
           <div className='mb-4 md:mb-0'>
-            <h2 className='text-xl font-bold mb-2'>
+            <h2 className='text-xl sm:text-texl-2xl md:text-3xl font-bold mb-2'>
               Subscribe for App Updates!
             </h2>
             <p className='text-gray-600'>
@@ -24,13 +24,12 @@ const FooterAppStore = () => {
               your inbox.
             </p>
           </div>
-          <div className='flex w-full md:w-auto'>
+          <div className='join'>
             <input
-              type='email'
+              className='input input-sm md:input-md join-item focus:outline-none  '
               placeholder='you@example.com'
-              className='border border-gray-300 rounded-l px-4 py-2 w-full md:w-72 focus:outline-none'
             />
-            <button className='bg-purple-500 hover:bg-purple-600 text-white px-6 py-2 rounded-r font-semibold transition min-w-max '>
+            <button className='btn btn-sm md:btn-md join-item border-purple-600 bg-purple-600 text-white '>
               SIGN UP
             </button>
           </div>
@@ -97,16 +96,16 @@ const FooterAppStore = () => {
           <Link to='#' className='hover:text-purple-600 transition'>
             <RiFacebookFill />
           </Link>
-          <Link to='#' className='hover:text-purple-600 transition'>
+          <Link to='#' className='footer-iconText'>
             <RiInstagramFill />
           </Link>
-          <Link to='#' className='hover:text-purple-600 transition'>
+          <Link to='#' className='footer-iconText'>
             <RiTwitterFill />
           </Link>
-          <Link to='#' className='hover:text-purple-600 transition'>
+          <Link to='#' className='footer-iconText'>
             <RiGithubFill />
           </Link>
-          <Link to='#' className='hover:text-purple-600 transition'>
+          <Link to='#' className='footer-iconText'>
             <RiDribbbleFill />
           </Link>
         </div>
@@ -115,13 +114,13 @@ const FooterAppStore = () => {
         <div className='flex flex-col md:flex-row justify-between items-center text-gray-500 text-sm border-t border-gray-200 pt-4'>
           <p>&copy; 2026 ZentroApps. All rights reserved.</p>
           <div className='flex space-x-4 mt-2 md:mt-0'>
-            <Link to='#' className='hover:text-gray-800 transition'>
+            <Link to='#' className='footer-iconText'>
               Terms & Conditions
             </Link>
-            <Link to='#' className='hover:text-gray-800 transition'>
+            <Link to='#' className='footer-iconText'>
               Privacy Policy
             </Link>
-            <Link to='#' className='hover:text-gray-800 transition'>
+            <Link to='#' className='footer-iconText'>
               Cookies
             </Link>
           </div>
