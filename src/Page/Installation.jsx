@@ -2,20 +2,16 @@ import { useEffect, useState } from 'react';
 import InstalledCard from '../components/InstalledCard';
 import InstalledAppsSkeltonLoader from '../components/SkeltonComponents/InstalledAppsSkeltonLoader';
 import ContextWrapper from '../provider/ContextWrapper';
-import AppNotFoundPage from './AppNotFoundPage';
 import NotInstalledUI from '../components/NotInstalledUI';
 
 const Installation = () => {
   const [isLoading, setIsLoading] = useState(true);
   const { storedData, apps } = ContextWrapper();
-  const [filteredData, setFilteredData] = useState(storedData);
+  const [filteredData, setFilteredData] = useState(storedData || []);
 
-  const handleSortBySize = (order) => {
+  const handleSortByDownload = (download) => {
     const sortedData = [...filteredData].sort((a, b) => {
-      console.log(a.size);
-      console.log(b.size);
-
-      if (order === 'Low - high') {
+      if (download === 'Low - high') {
         return a.downloads - b.downloads;
       } else {
         return b.downloads - a.downloads;
@@ -25,10 +21,10 @@ const Installation = () => {
   };
 
   useEffect(() => {
+    const savedIds = JSON.parse(localStorage.getItem('installedApps'));
+    const filtered = apps?.filter((app) => savedIds?.includes(app?.id));
+    setFilteredData(filtered);
     setTimeout(() => {
-      const savedIds = JSON.parse(localStorage.getItem('installedApps'));
-      const filtered = apps?.filter((app) => savedIds?.includes(app?.id));
-      setFilteredData(filtered);
       setIsLoading(false);
     }, 1000);
   }, [apps, storedData]);
@@ -52,10 +48,10 @@ const Installation = () => {
         </h3>
         <select
           defaultValue='Sort By Size'
-          onChange={(e) => handleSortBySize(e.target.value)}
+          onChange={(e) => handleSortByDownload(e.target.value)}
           className='select appearance-none w-fit focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 rounded-md border border-gray-300  py-2 text-sm text-gray-700'
         >
-          <option disabled={true}>Sort By Size</option>
+          <option disabled={true}>Sort By Download</option>
           <option value={'Low - high'}>Low - High</option>
           <option value={'High - low'}>High - Low</option>
         </select>
@@ -67,7 +63,7 @@ const Installation = () => {
               <InstalledAppsSkeltonLoader key={n} />
             ))}
           </div>
-        ) : filteredData.length > 0 ? (
+        ) : filteredData?.length > 0 ? (
           filteredData?.map((app) => (
             <InstalledCard key={app.id} appId={app.id} app={app} />
           ))

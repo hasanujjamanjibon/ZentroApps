@@ -24,13 +24,13 @@ const Details = () => {
   } = apps?.find((app) => app.id == id) || {};
 
   useEffect(() => {
+    const match = storedData.includes(Number(id));
+    if (match) {
+      setInstalled(true);
+    } else {
+      setInstalled(false);
+    }
     setTimeout(() => {
-      const match = storedData.includes(Number(id));
-      if (match) {
-        setInstalled(true);
-      } else {
-        setInstalled(false);
-      }
       setIsLoading(false);
     }, 1000);
   }, [storedData, id, setInstalled]);
