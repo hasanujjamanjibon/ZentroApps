@@ -1,9 +1,8 @@
 import { Link } from 'react-router';
 
 const ErrorRoute = () => {
-
   return (
-    <div className='grid place-items-center gap-4 p-20'>
+    <div className='grid place-items-center gap-4 p-20 min-h-screen'>
       <img src='/assets/error-404.png' alt='' className='w-96' />
       <h1 className='text-4xl font-bold text-gray-800'>
         Oops, page not found!
