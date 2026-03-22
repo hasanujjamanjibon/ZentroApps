@@ -92,7 +92,7 @@ const FooterAppStore = () => {
         </div>
 
         {/* Social */}
-        <div className='flex justify-center lg:justify-end space-x-4 mb-6 text-gray-600 text-xl'>
+        <div className='flex justify-center md:justify-end space-x-4 mb-6 text-gray-600 text-xl'>
           <Link to='#' className='hover:text-purple-600 transition'>
             <RiFacebookFill />
           </Link>
